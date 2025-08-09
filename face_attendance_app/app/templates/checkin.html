@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Check‑In/Out</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-start p-4">
+    <div class="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
+        <h1 class="text-2xl font-bold mb-4 text-center">Face Attendance</h1>
+        <p class="mb-4 text-center text-gray-600">This page automatically recognises employees and toggles between check‑in and check‑out.</p>
+        <div class="relative w-80 h-80 mx-auto">
+            <video id="video" class="w-full h-full object-cover rounded-lg border-4 border-gray-300" autoplay muted playsinline></video>
+        </div>
+        <div id="results" class="mt-4 text-center font-semibold text-gray-700"></div>
+    </div>
+    <script src="/static/js/checkin.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  face-attendance:
+    build: .
+    container_name: face_attendance_app
+    ports:
+      - "8000:8000"
+    environment:
+      # Connection string for the PostgreSQL service defined below
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  # PostgreSQL database service
+  postgres:
+    image: postgres:16-alpine
+    container_name: face_attendance_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    name: face_attendance_postgres
